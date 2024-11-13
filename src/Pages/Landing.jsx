@@ -3,6 +3,7 @@ import React from 'react';
 import '../Styles/Landing.css'
 import Logo from '../assets/logo.png'
 import img from '../assets/call.png'
+import { Link } from 'react-router-dom';
 
 function Landing(){
     return(
@@ -18,7 +19,9 @@ function Landing(){
                     <p className='text-warning'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum illo obcaecati accusantium 
                         veritatis laudantium optio eos iure ad facilis similique dolore dolorem tempora quidem sint quae, officiis aliquam
                          molestiae consequatur.</p>
-                    <button className='btn btn-info p-3'>Créer un compte étudiant</button>
+                        <Link to={'/langue'} className='btn btn-info p-3'>
+                            Créer un compte étudiant
+                        </Link>
                 </div>
             </section>
             <section className="banner2 pt-5">
