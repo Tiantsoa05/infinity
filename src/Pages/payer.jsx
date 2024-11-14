@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import '../Styles/payer.css';
 const Payer = () => {
     const [numero, setNumero] = useState('');
     const [montant, setMontant] = useState('');
@@ -33,7 +33,7 @@ const Payer = () => {
             };
             return (
                 <div className="Payer">
-                    <h2>PAYER</h2>
+                    <h2>PAYER POUR suivre ce prof</h2>
                     {erreur && <p style={{ color: 'red' }}>{erreur}</p>}
                     <form onSubmit={handleSubmit}>
                         <label>

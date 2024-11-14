@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
-
+import '../Styles/Inscription.css';
+import logo from '../assets/logo.png';
 const InscriForm = () => {
 
   const [Nom, setNom] = useState('');
@@ -42,7 +43,9 @@ const InscriForm = () => {
 
   return (
     <div className="InscriForm">
-      <h2>BIENVENUE DANS L'INSCRIPTION </h2>
+     <div className='titre'>
+      <h2 >Inscrivez-vous </h2>
+      </div> 
       {erreur && <p style={{ color: 'red' }}>{erreur}</p>}
       <form onSubmit={handleSubmit}>
         <label>
@@ -72,7 +75,7 @@ const InscriForm = () => {
           />  
         </label><br />
 
-        <label>
+        <label >
           Mot de passe:
           <input
             type="password"
@@ -95,7 +98,10 @@ const InscriForm = () => {
         <button type="submit">S'inscrire</button>
       </form>
     </div>
+    
   );
+ 
+  
 };
 
 export default InscriForm;

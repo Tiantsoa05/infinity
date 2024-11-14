@@ -1,0 +1,62 @@
+.InscriForm {
+    width: 600px; 
+    margin-left: 55%;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    justify-content: flex-end; 
+    align-items: center;
+     margin-top: 100px;
+    font-family: sans-serif;
+    background: linear-gradient(to right, #e4e2e2, transparent);
+  }
+  
+  .InscriForm h2 {
+    text-align: left; 
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .InscriForm label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .InscriForm input[type="text"],
+  .InscriForm input[type="email"],
+  .InscriForm input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box; /
+  }
+  
+  .InscriForm input[type="text"]:focus,
+  .InscriForm input[type="email"]:focus,
+  .InscriForm input[type="password"]:focus {
+    border: 1px solid #555;
+    outline: none;
+  }
+  
+  .InscriForm button {
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+    margin-left: 70%;
+  }
+  
+  .InscriForm button:hover {
+    background-color: #46a049; /* Darker green on hover */
+  }
+  
+  .InscriForm p {
+    color: red;
+    text-align: center;
+  }
