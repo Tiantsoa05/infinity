@@ -82,3 +82,6 @@
     overflow-y: scroll;
     width: 102%;
 }
+.details{
+    overflow: scroll;
+}

@@ -6,6 +6,7 @@ import { Menus } from "./Menus/Menus.jsx";
 import DetailProf from "./Profs/DetailProf/DetailProf.jsx";
 import { Lessons } from "./Lessons/Lessons.jsx";
 import { Exercice } from "./Exercice/Exercice.jsx";
+import Post from "./Post/Post.jsx";
 
 export const Accueil = ()=>{
     const data = [
@@ -126,6 +127,7 @@ export const Accueil = ()=>{
                     {
                         (lessons) && <Lessons/>
                     }
+                    <Post/>
                 </div>
                 <div className="menu liste-profs">
                     <Menus setLessons={setLessons} setExercice={setExercice}/>
