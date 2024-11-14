@@ -1,9 +1,11 @@
 import React, {useState} from "react";
 import "./Accueil.css"
 import { Header } from "./Header/Header.jsx";
-import { Link } from "react-router-dom";
 import { Profs } from "./Profs/Profs.jsx";
 import { Menus } from "./Menus/Menus.jsx";
+import DetailProf from "./Profs/DetailProf/DetailProf.jsx";
+import { Lessons } from "./Lessons/Lessons.jsx";
+import { Exercice } from "./Exercice/Exercice.jsx";
 
 export const Accueil = ()=>{
     const data = [
@@ -60,6 +62,27 @@ export const Accueil = ()=>{
     ]
     const [profs,setProfs] = useState(data)
     const [valueSearch,setValueSearch] = useState('')
+    const [cliquedProf,setCliquedProf] = useState(null)
+    const [lessons,DisplayLessons] = useState(false)
+    const [exercice,DisplayExercice] = useState(false)
+
+    const setProf = (prof) =>{
+        setCliquedProf(prof)
+        DisplayExercice(false)
+        DisplayLessons(false)
+    }
+
+    const setExercice=()=>{
+        DisplayExercice(true)
+        setCliquedProf(null)
+        DisplayLessons(false)
+    }
+
+    const setLessons=()=>{
+        DisplayLessons(true)
+        setCliquedProf(null)
+        DisplayExercice(false)
+    }
 
     return (
         <div className="accueil justify-content-center align-items-center w-100 h-100">
@@ -90,12 +113,22 @@ export const Accueil = ()=>{
                         />
                     </div>
                     <div className="list">
-                        <Profs profs={profs}/>
+                        <Profs profs={profs} setProf={setProf}/>
                     </div>
                 </div>
-                <div className="details liste-profs"></div>
+                <div className="details liste-profs">
+                    {
+                        (cliquedProf !== null) && <DetailProf prof={cliquedProf}/>
+                    }
+                    {
+                        (exercice) && <Exercice/>
+                    }
+                    {
+                        (lessons) && <Lessons/>
+                    }
+                </div>
                 <div className="menu liste-profs">
-                    <Menus/>
+                    <Menus setLessons={setLessons} setExercice={setExercice}/>
                 </div>
             </div>
         </div>
