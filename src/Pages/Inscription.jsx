@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import '../Styles/Inscription.css';
 import logo from '../assets/logo.png';
+import { Link } from'react-router-dom';
 const InscriForm = () => {
 
   const [Nom, setNom] = useState('');
@@ -42,61 +43,67 @@ const InscriForm = () => {
   };
 
   return (
-    <div className="InscriForm">
-     <div className='titre'>
-      <h2 >Inscrivez-vous </h2>
-      </div> 
-      {erreur && <p style={{ color: 'red' }}>{erreur}</p>}
-      <form onSubmit={handleSubmit}>
-        <label>
-          NOM:
-          <input
-            type="text"
-            value={Nom}
-            onChange={(e) =>  setNom(e.target.value)}
-            required
-          />
-        </label><br />
-        <label>
-          PRENOM(S):
-          <input
-            type="text"
-            value={Prenoms}
-            onChange={(e) => setPrenoms(e.target.value)}
-            required
-          />
-        </label><br />
-        <label>Email:
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />  
-        </label><br />
+    <div className="container-fluid inscrire">
+      <div className="illustrations">
+        <img src={logo} alt="Logo" />
+      </div>
+      <div className="InscriForm">
+      <div className='titre'>
+        <h2 >Inscrivez-vous </h2>
+        </div> 
+        {erreur && <p style={{ color: 'red' }}>{erreur}</p>}
+        <form onSubmit={handleSubmit}>
+          <label>
+            NOM:
+            <input
+              type="text"
+              value={Nom}
+              onChange={(e) =>  setNom(e.target.value)}
+              required
+            />
+          </label><br />
+          <label>
+            PRENOM(S):
+            <input
+              type="text"
+              value={Prenoms}
+              onChange={(e) => setPrenoms(e.target.value)}
+              required
+            />
+          </label><br />
+          <label>Email:
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />  
+          </label><br />
 
-        <label >
-          Mot de passe:
-          <input
-            type="password"
-            value={mdp}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          
-        </label> <br />
-        <label>
-          Confirmer votre  mot de passe:
-          <input
-            type="password"
-            value={comdp}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </label>
-        
-        <button type="submit">S'inscrire</button>
-      </form>
+          <label >
+            Mot de passe:
+            <input
+              type="password"
+              value={mdp}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            
+          </label> <br />
+          <label>
+            Confirmer votre  mot de passe:
+            <input
+              type="password"
+              value={comdp}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+          </label>
+          <Link to={"/home"}>
+            <button type="submit">S'inscrire</button>
+          </Link>
+        </form>
+      </div>
     </div>
     
   );

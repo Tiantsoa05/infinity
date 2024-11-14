@@ -1,19 +1,24 @@
 .InscriForm {
     width: 600px; 
-    margin-left: 55%;
+    /*margin-left: 55%;*/
     padding: 30px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    justify-content: flex-end; 
+    /*justify-content: flex-end;
+    align-items: center;*/
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     align-items: center;
-     margin-top: 100px;
+    justify-content: space-around;
+    margin-top: 50px;
     font-family: sans-serif;
     background: linear-gradient(to right, #e4e2e2, transparent);
   }
   
   .InscriForm h2 {
     text-align: left; 
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
     text-align: center;
   }
   
@@ -49,7 +54,8 @@
     cursor: pointer;
     margin-top: 15px;
     font-weight: bold;
-    margin-left: 70%;
+    margin-left: 25%;
+    width: 50%;
   }
   
   .InscriForm button:hover {
@@ -59,4 +65,33 @@
   .InscriForm p {
     color: red;
     text-align: center;
+  }
+
+  .inscrire {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .illustrations {
+    width: 50opx;
+    height: 20%;
+  }
+
+  .illustrations img {
+    width: 30vw;
+    height: 30vh;
+    animation-name: tourne;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes tourne {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
   }

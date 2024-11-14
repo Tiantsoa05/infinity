@@ -39,7 +39,9 @@ export const Header = () => {
             />
           <span>3</span>
         </div>
-        <div className="btn btn-primary btn-deconnect">Deconnexion</div>
+        <Link to={"/"}>
+          <div className="btn btn-primary btn-deconnect">Deconnexion</div>
+        </Link>
       </div>
     </div>
   );

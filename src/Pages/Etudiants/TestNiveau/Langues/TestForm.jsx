@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 export const TestForm = ({data}) => {
     console.log(data);
     return (
@@ -17,7 +17,9 @@ export const TestForm = ({data}) => {
                     </div>
                 ))
             }
-            <div className="btn btn-primary">Valider</div>
+            <Link to={"/inscription"}>
+                <div className="btn btn-primary">Valider</div>
+            </Link>
         </div>
     );
 };
