@@ -8,6 +8,9 @@ import Payer from './Pages/payer.jsx';
 import { Accueil } from './Pages/Etudiants/Accueil/Accueil.jsx';
 import  Langue  from './Pages/Etudiants/Langue/Langue.jsx';
 import TestNiveau from './Pages/Etudiants/TestNiveau/TestNiveau.jsx';
+import Dashboard from './Pages/Etudiants/Dashboard/Dashboard.jsx';
+import Courses from './Pages/Etudiants/Contenus/Courses/Courses.jsx';
+
 function App() {
 
   return (
@@ -20,6 +23,8 @@ function App() {
         <Route path="/lang/:langue" element={<TestNiveau />} />
         <Route path='/langue' element={<Langue />} />
         <Route path='/home' element={<Accueil/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='/courses' element={<Courses/>}/>
       </Routes>
     </BrowserRouter>
   )

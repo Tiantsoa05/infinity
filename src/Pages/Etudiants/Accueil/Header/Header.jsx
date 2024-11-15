@@ -21,9 +21,9 @@ export const Header = () => {
             className="form-control formulaire" 
         />
       </div>
-      <div className="profil card-group gap-4 align-items-center">
-        <div className="profile">
-            <Link to={'/home'}>
+      <div className="profil card-group">
+        <div className="profile-header">
+            <Link to={'/dashboard'}>
                 <FaUser 
                     size={30} 
                     className="icon"
