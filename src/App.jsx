@@ -10,6 +10,9 @@ import  Langue  from './Pages/Etudiants/Langue/Langue.jsx';
 import TestNiveau from './Pages/Etudiants/TestNiveau/TestNiveau.jsx';
 import Dashboard from './Pages/Etudiants/Dashboard/Dashboard.jsx';
 import Courses from './Pages/Etudiants/Contenus/Courses/Courses.jsx';
+import Chat from './Pages/prof/Chat.jsx';
+import Message from './Pages/prof/Message.jsx';
+import MessageInput from './Pages/prof/MessageInput.jsx';
 
 function App() {
 
@@ -25,7 +28,10 @@ function App() {
         <Route path='/home' element={<Accueil/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/courses' element={<Courses/>}/>
-      </Routes>
+        <Route path='/chat' element={<Chat/>}/>
+        <Route path="/Message" element={<Message/>} />
+        <Route path="/MessageInput" element={<MessageInput/>} />
+        </Routes>
     </BrowserRouter>
   )
 }
