@@ -1,27 +1,20 @@
 import React from "react";
 import "./Notifications.css";
+import { notifications } from "../../../../../data/Notifications.js";
 
 const Notifications = () => {
     return (
         <div className="notif-card">
-            <div className="notif-item">
-                <p>Votre professeur a répondu à votre message</p>
-                <div className="time">
-                    <p>il y a 1h</p>
-                </div>
-            </div>
-            <div className="notif-item">
-                <p>Votre professeur a publié une nouvelle chapitre</p>
-                <div className="time">
-                    <p>il y a 2h</p>
-                </div>
-            </div>
-            <div className="notif-item">
-                <p>Un nouveau programme a été créé</p>
-                <div className="time">
-                    <p>il y a 3h</p>
-                </div>
-            </div>
+            {
+                notifications.map(notif => (
+                    <div className="notif-item" key={notif.id}>
+                        <p>{notif.message}</p>
+                        <div className="time">
+                            <p>{notif.time}</p>
+                        </div>
+                    </div>
+                ))
+            }
         </div>
     )
 }
