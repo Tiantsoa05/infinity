@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "../../../Accueil/Header/Header.jsx";
 import "./Chapters.css"
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { data } from "../../../../../data/courses.js";
 
 const Chapters = ()=>{
@@ -9,7 +9,7 @@ const Chapters = ()=>{
     const {titre} = useParams()
     const [chapters,setChapters] = useState(data.find(course=>course.titre===titre).chapters)
     const  [currentChapter,setCurrentChapter] = useState(chapters[0])
-
+    const navigate = useNavigate()
     const nextChapter = ()=>{
         if(chapters.indexOf(currentChapter)<chapters.length-1){
             setCurrentChapter(chapters[chapters.indexOf(currentChapter)+1])
@@ -23,6 +23,10 @@ const Chapters = ()=>{
 
     const showChapter = (title)=>{
         setCurrentChapter(chapters.find(chapter=>chapter.title===title))
+    }
+
+    const finishChapter = ()=>{
+        navigate(`/courses`)
     }
     return <div className="chapters">
         <Header/>
@@ -44,7 +48,7 @@ const Chapters = ()=>{
                 </div>
                 <div className="chapter-buttons">
                     {
-                        (chapters.indexOf(currentChapter)>0) && 
+                        (chapters.indexOf(currentChapter)>0 && chapters.indexOf(currentChapter)<chapters.length) && 
                             <div className="btn btn-primary" onClick={PrevChapter}>
                                 {chapters[chapters.indexOf(currentChapter)-1].title}
                             </div>
@@ -53,6 +57,12 @@ const Chapters = ()=>{
                         (chapters.indexOf(currentChapter)<chapters.length-1) && 
                             <div className="btn btn-primary" onClick={nextChapter}>
                                 {chapters[chapters.indexOf(currentChapter)+1].title}
+                            </div>
+                    }
+                    {
+                        (chapters.indexOf(currentChapter)===chapters.length-1) && 
+                            <div className="btn btn-primary" onClick={finishChapter}>
+                                Terminer
                             </div>
                     }
                    
