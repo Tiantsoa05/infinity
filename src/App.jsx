@@ -13,6 +13,7 @@ import Courses from './Pages/Etudiants/Contenus/Courses/Courses.jsx';
 import Chat from './Pages/prof/Chat.jsx';
 import Message from './Pages/prof/Message.jsx';
 import MessageInput from './Pages/prof/MessageInput.jsx';
+import Chapters from './Pages/Etudiants/Contenus/Courses/Chapter/Chapters.jsx';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         <Route path='/chat' element={<Chat/>}/>
         <Route path="/Message" element={<Message/>} />
         <Route path="/MessageInput" element={<MessageInput/>} />
+        <Route path="/courses/:titre" element={<Chapters/>} />
         </Routes>
     </BrowserRouter>
   )

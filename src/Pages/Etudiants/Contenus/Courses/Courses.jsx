@@ -1,66 +1,58 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import "./Courses.css"
-import Chapter from "./Chapter/Chapter.jsx";
+import Chapter from "./Chapter/Chapters.jsx";
 import {Header} from "../../Accueil/Header/Header.jsx";
+import image from '../../../../assets/img.png'
+import Filters from "./Filters/Filters.jsx";
+import { data } from "../../../../data/courses.js";
+import { Link } from "react-router-dom";
 
 const Courses = ()=>{
-    const [courses, setCourses] = useState([
-        {
-            id: 1,
-            langue: "Fançais",
-            description: "Français",
-            chapters:[
-                {
-                    id: 1,
-                    title: "Premier chapitre",
-                    content:{
-                        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, purus sed semper pulvinar, ex mauris finibus lectus, at condimentum turpis nisi vel ligula.",
-                        images: ["image1.jpg","image2.jpg"]
-                    }
-                },
-                {
-                    id: 2,
-                    title: "Deuxième chapitre",
-                    content:{
-                        text: "Consectetur adipiscing elit. Sed auctor, purus sed semper pulvinar, ex mauris finibus lectus, at condimentum turpis nisi vel ligula.",
-                        images: [
-                            "https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-                            "https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                        ]
-                    }
-                },
-                {
-                    id: 3,
-                    title: "Troisième chapitre",
-                    content:{
-                        text: "Sed auctor, purus sed semper pulvinar, ex mauris finibus lectus, at condimentum turpis nisi vel ligula.",
-                        images: [
-                            "https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-                            "https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                        ]
-                    }
-                }
-            ]
+
+    const [courses, setCourses] = useState(data)
+    const [filters,setFilters]=useState([])
+
+    useContext(()=>{
+
+    },[])
+
+    const setFilter = (value) =>{
+    
+        let actual = [...filters] 
+
+        if(actual.includes(value)){
+            actual = actual.filter(filter=>filter!==value)
+            setFilters([...actual])
+        }else{
+            actual.push(value)
+            setFilters([...filters,value])
         }
-    ])
-    const [chapter,setChapter] = useState(courses[0].chapters[0])
+        console.log(actual)
+        setCourses(data.filter(course=>actual.includes(course.titre.toLocaleLowerCase()))); //)))
+        
+
+    }
+    
     return <>
         <Header/>
         <div className="courses ">
-            {
-                courses.map(course => (
-                    <div className="course-card" key={course.id}>
-                        <ul className="chapters">
-                            {
-                                course.chapters.map(chapter=>{
-                                    return <li className="list" onClick={()=>setChapter(chapter)}>{chapter.title}</li>
-                                })
-                            }
-                        </ul>
-                    </div>
-                ))
-            }
-            <Chapter chapter={chapter}/>
+            <Filters setFilter={setFilter} />
+            <div className="courses-list">
+                {courses.map(course=>(
+                    <Link to={`/courses/${course.titre}`} key={course.id} style={{fontStyle:"none"}} >   
+                        <div className="card card-course"  key={course.id}>
+                            <img src={image} className="card-img-top img-course" alt={course.langue}/>
+                            <div className="card-body card-body-course">
+                                <div className="bold">{course.titre}</div>
+                                <p className="card-text">{course.description}.</p>
+                                <div className="card-text-level"><span>Niveau: </span>{course.niveau}</div>
+                                <div className="time-estimation">{course.chapters.length * 4} heures</div>
+                            </div>
+                        </div>
+                    </Link>
+                  
+                ))}
+            </div>  
         </div>
     </>
 }

@@ -21,7 +21,9 @@
 }
 .notif{
     position: relative;
-    
+}
+.icon-notif{
+    z-index: 100 !important;
 }
 .notif span{
     position: absolute;
@@ -38,6 +40,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .btn-deconnect{
     background-color: rgb(33, 187, 33);
