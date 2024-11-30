@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Exercice.css"
+import OpenAI from "openai";
 
 export const Exercice = () => {
     const [chat,setChat]=useState("")

@@ -7,6 +7,7 @@ import { Link, useLocation } from "react-router-dom";
 import Notifications from "./Notifications/Notifications.jsx";
 import { notifications } from "../../../../data/Notifications.js";
 import { BiLogoMessenger } from "react-icons/bi";
+import { TfiAgenda } from "react-icons/tfi";
 
 export const Header = () => {
     const [search, setSearch] = useState("")
@@ -89,6 +90,16 @@ export const Header = () => {
                     color="#000"
                 />
             </Link>
+        </div>
+        <div className="agenda notif">
+            <Link to={'/prof/calendar'}>
+                <TfiAgenda
+                  color="#000"
+                  size={30}
+                  className="icon"
+                />
+            </Link>
+            <span>4</span>
         </div>
         <Link to={"/"}>
           <div className="btn btn-primary btn-deconnect">Deconnexion</div>

@@ -14,7 +14,14 @@ import Chat from './Pages/prof/Chat.jsx';
 import Message from './Pages/prof/Message.jsx';
 import MessageInput from './Pages/prof/MessageInput.jsx';
 import Chapters from './Pages/Etudiants/Contenus/Courses/Chapter/Chapters.jsx';
+import { Exercice } from './Pages/Etudiants/Accueil/Exercice/Exercice.jsx';
+import ChatStudent from './Pages/Etudiants/Chat/ChatStudent.jsx';
+import InscriptionProf from './Pages/prof/Inscription/InscriptionProf.jsx';
+import { AccueilProf } from './Pages/prof/Accueil/AccueilProf.jsx';
+import CalendarPage from './Pages/prof/gerercalendrier/calendrier.jsx';
+import socket from './tools/socket.js';
 
+socket.emit('message-client', "hi")
 function App() {
 
   return (
@@ -33,7 +40,12 @@ function App() {
         <Route path="/Message" element={<Message/>} />
         <Route path="/MessageInput" element={<MessageInput/>} />
         <Route path="/courses/:titre" element={<Chapters/>} />
-        </Routes>
+        <Route path='/practice' element={<Exercice/>} />
+        <Route path='/messenger/:id' element={<ChatStudent/>} />
+        <Route path='/prof/signin' element={<InscriptionProf/>} />
+        <Route path='/prof/home' element={<AccueilProf/>} />
+        <Route path='/prof/calendar' element={<CalendarPage/>} />
+      </Routes>
     </BrowserRouter>
   )
 }

@@ -3,7 +3,7 @@ import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
 import { format, parse, startOfWeek, getDay } from 'date-fns';
 import enUS from 'date-fns/locale/en-US'; // Locale (adaptez à votre région si nécessaire)
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-
+import {Header} from '../Accueil/Header/Header.jsx';
 const locales = {
   'en-US': enUS,
 };
@@ -41,13 +41,14 @@ const CalendarPage = () => {
 
   return (
     <div>
+      <Header/>
       <h1>Calendrier de Gestion de l'Agenda</h1>
       <Calendar
         localizer={localizer}
         events={events}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 500, margin: '50px' }}
+        style={{ height: "70vh", width: "20vw",margin: '50px' }}
         selectable={true}
         onSelectSlot={handleSelectSlot}
         onSelectEvent={(event) => alert(`Événement : ${event.title}`)}

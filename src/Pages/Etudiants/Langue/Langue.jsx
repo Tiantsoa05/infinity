@@ -1,35 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "./Card/Card.jsx";
+import { langueData } from "../../../data/langues.js";
 
 const Langue = () => {
-  const [langues, setLangues] = useState([
-    {
-      langue: "Français",
-      image:
-        "https://www.countryflags.com/wp-content/uploads/france-flag-png-large.png",
-    },
-    {
-      langue: "Anglais",
-      image:
-        "https://www.countryflags.com/wp-content/uploads/united-kingdom-flag-png-large.png",
-    },
-    {
-      langue: "Allemand",
-      image:
-        "https://www.countryflags.com/wp-content/uploads/germany-flag-png-large.png",
-    },
-    {
-      langue: "Italien",
-      image:
-        "https://www.countryflags.com/wp-content/uploads/italy-flag-png-large.png",
-    },
-    {
-      langue: "Russe",
-      image:
-        "https://www.countryflags.com/wp-content/uploads/russia-flag-png-large.png",
-    },
-  ]);
+  const [langues, setLangues] = useState(langueData);
   return (
     <div className="langue justify-content-center align-items-center w-100 h-100">
       <h1 className="text-center titre">

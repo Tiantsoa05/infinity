@@ -11,7 +11,7 @@ function Landing(){
             <section className='banner1'>
                 <div className="header container-fluid">
                     <img src={Logo} alt="img" width={100} className='mt-4'/>
-                    <button className='btn btn-light mt-4'>Devenir formateur ?</button>
+                    <Link  to={"/prof/signin"} className='btn btn-light mt-4'>Devenir formateur ?</Link>
                     <button className='btn btn-info mt-4 m-2'>Se connecter ?</button>
                 </div>
                 <div className="description container-fluid pt-5">

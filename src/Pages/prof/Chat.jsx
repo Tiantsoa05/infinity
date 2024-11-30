@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import Message from "./Message";
 import MessageInput from "./MessageInput";
 
-const socket = io("http://localhost:5000"); // URL du backend
+// URL du backend
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
